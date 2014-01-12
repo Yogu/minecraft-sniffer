@@ -1,0 +1,17 @@
+{
+  "name": "minecraft-sniffer",
+  "version": "0.1.0",
+  "description": "Minecraft Proxy which parses and dispalys packets",
+  "author": "Jan Melcher <info@yogularm.de>",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "minecraft-protocol": "git://github.com/superjoe30/node-minecraft-protocol",
+    "colors": "*"
+  },
+  "engines": {
+    "node": ">=0.6",
+    "npm": ">=1.1"
+  }
+}
