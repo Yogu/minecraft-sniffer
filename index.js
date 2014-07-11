@@ -48,7 +48,7 @@ function handleData(client, isToServer, buffer) {
 	var source = isToServer ? 'client' : 'server';
 	var dest = isToServer ? 'toServer' : 'toClient';
 	while (true) {
-		parsed = protocol.parsePacket(buffer, client.state, isToServer);
+		parsed = protocol.parsePacket(buffer, client.state, isToServer, {packet: 1 });
 		if (!parsed)
 			break;
 		
@@ -62,7 +62,7 @@ function handleData(client, isToServer, buffer) {
 			else {
 				delete packet.id;
 				if (['mapChunkBulk', 'mapChunk'].indexOf(name) >= 0)
-					packet.data.compressedChunkData = '(hidden)';
+					packet.compressedChunkData = '(hidden)';
 				var output = (name + ': ').bold + JSON.stringify(packet);
 				console.log(output[isToServer ? 'green' : 'blue']);
 
